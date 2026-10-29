@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Post-College Activities · Aishwarya Rajan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F1F3F6;--surf:#fff;--ink:#16222E;--mute:#5B6876;--line:#D8DEE4;--bak:#B2701F;--cc:#2A7260;--tp:#2B4C97;--casa:#97395F;--lsat:#7360B8;--gap:#7C8793;--hl:#E9EEF6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1620;--surf:#172230;--ink:#E8EDF2;--mute:#9BA8B6;--line:#2A3949;--bak:#C98A3C;--cc:#3C9D85;--tp:#6A8DE0;--casa:#C0638A;--lsat:#8F7DD6;--gap:#6B7783;--hl:#1F2E41}}
+:root[data-theme="dark"]{--bg:#0F1620;--surf:#172230;--ink:#E8EDF2;--mute:#9BA8B6;--line:#2A3949;--bak:#C98A3C;--cc:#3C9D85;--tp:#6A8DE0;--casa:#C0638A;--lsat:#8F7DD6;--gap:#6B7783;--hl:#1F2E41}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:40px 20px 80px}
+h1,h2{font-family:"Bricolage Grotesque",Georgia,serif;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(34px,6vw,60px);font-weight:800;line-height:1.02}
+h2{font-size:24px;font-weight:700;margin:52px 0 4px}
+.sub{color:var(--mute);margin:10px 0 0}.hint{color:var(--mute);font-size:13px;margin:0 0 14px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:18px}
+.scroll{overflow-x:auto}
+button,input{font:inherit}
+button{cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--tp);outline-offset:2px}
+/* gantt */
+.g{display:grid;grid-template-columns:repeat(29,minmax(24px,1fr));grid-template-rows:22px 18px repeat(7,30px);row-gap:6px;min-width:800px;position:relative}
+.y{font:700 12px "Bricolage Grotesque",sans-serif;color:var(--mute);border-left:1px solid var(--line);padding-left:6px}
+.m{font-size:10px;color:var(--mute);text-align:center;border:0;background:none;padding:0;border-radius:4px}
+.m:hover{background:var(--hl)}.m.on{background:var(--ink);color:var(--surf);font-weight:600}
+.cur{grid-row:2/10;background:var(--hl);border-radius:6px;pointer-events:none;transition:grid-column .15s}
+.bk{border:0;border-radius:7px;background:var(--c);color:#fff;font-size:12px;font-weight:600;padding:0 10px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:transform .12s,box-shadow .12s;position:relative}
+.bk:hover,.bk.sel{transform:translateY(-1px);box-shadow:0 3px 10px color-mix(in srgb,var(--c) 45%,transparent)}
+.g.dim .bk:not(.act){opacity:.35}
+/* readout */
+.ro{display:grid;grid-template-columns:minmax(0,200px) 1fr;gap:20px;margin-top:18px;align-items:start}
+@media(max-width:640px){.ro{grid-template-columns:1fr}}
+.when{font:800 28px "Bricolage Grotesque",sans-serif;line-height:1}
+.tot{color:var(--mute);font-size:13px;margin-top:6px}
+input[type=range]{width:100%;margin-top:12px;accent-color:var(--tp)}
+.row{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none;position:relative;top:1px}
+.row b{font-weight:600}.row span{color:var(--mute);margin-left:auto;font-size:13px;white-space:nowrap}
+.none{color:var(--mute)}
+/* activities */
+details{background:var(--surf);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;margin-bottom:10px}
+details.flash{box-shadow:0 0 0 2px var(--c)}
+summary{cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:130px 1fr auto 16px;gap:12px;align-items:baseline;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary .d{font-weight:600;font-size:13px}summary .t{font:700 16px "Bricolage Grotesque",sans-serif}
+summary .p{font-size:12px;color:var(--mute);text-align:right}
+summary:after{content:"+";color:var(--mute)}
+details[open] summary:after{content:"–"}
+.dt{padding:0 16px 16px 158px;color:var(--mute)}
+.dt p{margin:0 0 8px}.dt b{color:var(--ink);font-weight:600}
+@media(max-width:640px){summary{grid-template-columns:1fr}.dt{padding-left:16px}summary .p{text-align:left}summary:after{display:none}}
+/* day */
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab{border:1px solid var(--line);background:var(--surf);border-radius:999px;padding:7px 16px;font-weight:600;font-size:14px}
+.tab[aria-pressed=true]{background:var(--ink);color:var(--surf);border-color:var(--ink)}
+.dbar{position:relative;height:46px;background:var(--hl);border-radius:8px;margin:6px 0 4px}
+.seg{position:absolute;top:6px;bottom:6px;background:var(--c);border-radius:5px;border:0;padding:0;opacity:.92}
+.seg.hv{outline:3px solid var(--ink);z-index:2}
+.ax{position:relative;height:16px;margin-bottom:12px}.ax span{position:absolute;transform:translateX(-50%);font-size:11px;color:var(--mute)}
+.ev{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:9px 10px;border-radius:8px;border-left:4px solid var(--c)}
+.ev+.ev{margin-top:4px}.ev.hv{background:var(--hl)}.ev b{font-weight:600;font-size:14px}
+.note{font-size:12px;color:var(--mute);margin-top:10px}
+@media(max-width:640px){.ev{grid-template-columns:1fr;gap:2px}}
+/* table + work */
+table{width:100%;border-collapse:collapse}th{font:600 12px Figtree;text-align:left;color:var(--mute);padding:6px 10px;border-bottom:1px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--line)}tr:last-child td{border:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.chip{border:1px solid var(--line);background:var(--surf);border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600}
+.chip[aria-pressed=true]{background:var(--cc);border-color:var(--cc);color:#fff}
+#q{margin-left:auto;border:1px solid var(--line);background:var(--surf);color:var(--ink);border-radius:8px;padding:6px 10px;min-width:180px}
+.wl{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:0 24px}
+.wi{display:flex;gap:10px;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.wi a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:3px}.wi small{color:var(--mute);white-space:nowrap}
+.more{font-weight:600;margin-top:12px}.cnt{color:var(--mute);font-size:13px;margin-bottom:6px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.st{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:140px}
+.st b{display:block;font:800 30px "Bricolage Grotesque",sans-serif;line-height:1}.st span{font-size:12px;color:var(--mute)}
+.play{margin-top:12px;border:0;border-radius:999px;background:var(--tp);color:#fff;font-weight:600;padding:8px 16px}.play:hover{filter:brightness(1.12)}
+.tab.play{margin-top:0;border:1px solid var(--tp)}
+.meter{height:8px;background:var(--hl);border-radius:6px;margin-top:12px;overflow:hidden}.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cc),var(--tp),var(--casa));transition:width .3s}
+.ms{display:none;margin-top:10px;background:var(--hl);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+.ph{position:absolute;top:-5px;bottom:-5px;width:3px;background:var(--ink);border-radius:2px;left:0;z-index:3;pointer-events:none}
+.clk{font:700 18px "Bricolage Grotesque",sans-serif;min-height:28px;margin:-4px 0 8px}
+#mus{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:40;border:1px solid var(--line);background:var(--surf);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+#toast{position:fixed;left:50%;bottom:max(64px,calc(env(safe-area-inset-bottom) + 56px));transform:translateX(-50%);background:var(--ink);color:var(--surf);padding:8px 16px;border-radius:999px;font-size:13px;z-index:40;transition:opacity .6s;white-space:nowrap}
+.cf{position:fixed;top:-30px;z-index:50;pointer-events:none;animation:fall 2.4s ease-in forwards}@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.8}}
+@media print{body{background:#fff}.tabs,.chips,.play,.meter,.cf,#mus,#toast,input[type=range]{display:none}details{break-inside:avoid}}
+</style></head>
+<body><main>
+<header><h1>Post-college<br>activities</h1>
+<p class="sub">Aishwarya Rajan · June 2024 to present · B.S. Cognitive Science, B.A. Political Science, UC Davis</p><div class="stats" id="stats"></div></header>
+
+<h2>Timeline</h2>
+<p class="hint">Click a month, drag the slider, or click a bar to explore.</p>
+<div class="card"><div class="scroll"><div class="g" id="g"></div></div>
+<div class="ro"><div><div class="when" id="when"></div><div class="tot" id="tot"></div><div class="ms" id="ms"></div><input type="range" id="sl" min="0" max="28" value="28" aria-label="Month"><div class="meter" title="Approximate weekly load"><i id="mt"></i></div><button class="play" id="play">▶ Play my 29 months</button></div><div id="now"></div></div></div>
+
+<h2>Activities</h2><p class="hint">Open any row for the description and a typical week.</p>
+<div id="acts"></div>
+
+<h2>A day in my life</h2>
+<div class="tabs" id="tabs"></div>
+<div class="card"><div class="dbar" id="dbar"></div><div class="ax" id="ax"></div><div class="clk" id="clk"></div><div id="evs"></div>
+<p class="note">Bars use midpoints where a range was given, and estimated end times where only a start was given.</p></div>
+
+<h2>Travel and events</h2>
+<div class="card scroll"><table><thead><tr><th>Place</th><th>Purpose</th></tr></thead><tbody id="tv"></tbody></table></div>
+
+<h2>Country Central published work</h2>
+<p class="hint">Linked to the live articles. Single reviews are credited by line inside weekly team roundups.</p>
+<div class="card"><div class="chips" id="chips"></div><div class="cnt" id="cnt"></div><div class="wl" id="wl"></div><div class="more">…and about 100 more on the Country Central website</div></div>
+</main>
+<button id="mus" aria-label="Toggle music">🎵 Play music</button><div id="toast">🎸 Tap anywhere to start the soundtrack</div>
+<script>
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],N=29;
+const lab=i=>MN[(i+5)%12]+' '+(2024+Math.floor((i+5)/12));
+const A=[
+{id:'lsat',n:'LSAT preparation',s:'LSAT prep',f:3,t:28,tm:'~9.5 hrs/wk',h:9.5,pd:'Unpaid',c:'lsat',d:'Self-directed LSAT study throughout the period, alongside work and volunteering.',sc:'Weekday mornings or after work, ~9.5 hrs/week',w:'Timed sections, full-length practice tests, and review of missed questions.'},
+{id:'bar',n:'Head Barista, Maison Benoit French Bakery',s:'Head Barista',f:3,t:11,tm:'~20–25 hrs/wk',h:22.5,pd:'Paid',c:'bak',d:'Took and prepared beverage orders; developed seasonal drink menus, efficiency measures, and an equipment-maintenance training regimen.',sc:'3–4 shifts per week, 4–6 hours each',w:'Bar service, drink development, equipment upkeep, training newer baristas.'},
+{id:'mgr',n:'Bakery Manager, Maison Benoit French Bakery',s:'Bakery Manager',f:11,t:19,tm:'~40+ hrs/wk',h:42,pd:'Paid',c:'bak',d:'Managed about thirty employees: scheduling, inventory, ordering, hiring interviews, vendor visits, training programs, and sales and cash-handling processes that cut errors while supporting higher volume.',sc:'5–6 days per week, ~42+ hrs/week',w:'Weekly schedule for ~30 staff; inventory and stock requests; coffee and matcha orders; candidate interviews; electrician, espresso technician, and pest-control visits; shift-lead and new-hire training; kitchen coordination on launches, allergens, and labels; reviewing error trends and updating procedures.'},
+{id:'cc',n:'Freelance Writer, Country Central',s:'Country Central',f:17,t:28,tm:'~10–15 hrs/wk + travel',h:12.5,pd:'Paid',c:'cc',d:'Album, EP, and single reviews, artist interviews, features, and opinion pieces on country music; travel to Nashville and festivals to interview artists and network with publicists and label staff.',sc:'Thursday to Sunday, 3–6 hrs/week',w:'Listening and research, drafting reviews and features, scheduling and conducting interviews, pitching editors, following up with publicists.'},
+{id:'tp',n:'Founding Business Development Rep, Tradespace',s:'Tradespace BDR',f:21,t:28,tm:'~40 hrs/wk + travel',h:42,pd:'Paid',c:'tp',d:'Research patent portfolios and prospects, build outreach and messaging, brief IP attorneys, general counsel, and CEOs, and attend conferences across North America including Canada. Messaging brought the first corporate client and 90% of the meeting quota.',sc:'Monday to Friday, ~42 hrs/week',w:'Prospect research and outreach, patent portfolio analysis, briefings for attorneys and executives, market research across biotech, AI, semiconductors, green tech, and robotics.'},
+{id:'ct',n:'CASA volunteer training',s:'CASA training',f:21,t:23,tm:'~5–8 hrs/wk',h:6.5,pd:'Unpaid',c:'casa',d:'Three months of required Court Appointed Special Advocate training, San Francisco.',sc:'Training 4 hrs/week',w:'Training modules and court observation.'},
+{id:'ca',n:'Court Appointed Special Advocate (CASA)',s:'CASA advocate',f:23,t:28,tm:'~10–15 hrs/month',h:3,pd:'Unpaid',c:'casa',d:'Represent the best interests of an assigned foster child through court participation and work with judges, attorneys, and social workers; maintain a consistent one-on-one relationship.',sc:'Advocacy 8–10 hrs/month',w:'Child visits, contact with social workers and attorneys, reports and hearings.'}];
+const seg=(a,m)=>[[a.f,a.t],...(a.x||[])].some(q=>q[0]<=m&&m<=q[1]);
+const rng=a=>(a.x?lab(a.x[0][0])+' · ':'')+lab(a.f)+' – '+(a.t==28?'Present':lab(a.t));
+// gantt
+let sel=28,cur=null;
+function gantt(){
+ let h='<div class="y" style="grid-column:1/8;grid-row:1">2024</div><div class="y" style="grid-column:8/20;grid-row:1">2025</div><div class="y" style="grid-column:20/30;grid-row:1">2026</div><div class="cur" id="cur"></div>';
+ for(let i=0;i<N;i++)h+=`<button class="m" data-m="${i}" style="grid-column:${i+1};grid-row:2">${MN[(i+5)%12]}</button>`;
+ A.forEach((a,r)=>[[a.f,a.t],...(a.x||[])].forEach(([f,t],j)=>h+=`<button class="bk" data-id="${a.id}" style="grid-column:${f+1}/${t+2};grid-row:${r+3};--c:var(--${a.c})" title="${esc(a.n+' · '+rng(a))}">${EM[a.id]}${j?'':' '+esc(a.s)}</button>`));
+ $('g').innerHTML=h}
+function show(m){sel=m;$('sl').value=m;
+ $('cur').style.gridColumn=(m+1)+'/'+(m+2);
+ document.querySelectorAll('.m').forEach(b=>b.classList.toggle('on',+b.dataset.m===m));
+ const on=A.filter(a=>seg(a,m)),tot=on.reduce((s,a)=>s+a.h,0);
+ $('g').classList.add('dim');document.querySelectorAll('.bk').forEach(b=>b.classList.toggle('act',on.some(a=>a.id===b.dataset.id)));
+ $('when').textContent=lab(m);
+ $('tot').textContent=on.length?`${on.length} ${on.length>1?'things':'thing'} at once · about ${Math.round(tot)} hrs/week`:'';
+ $('now').innerHTML=on.length?on.map(a=>`<div class="row" style="--c:var(--${a.c})"><i class="dot"></i><b>${esc(a.n)}</b><span>${a.tm}</span></div>`).join(''):'<p class="none">Nothing recorded for this month yet. Add what you were doing.</p>';fun(m,on,tot)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b){stop();show(+b.dataset.m)}
+ const k=e.target.closest('.bk');if(k){const d=$('a-'+k.dataset.id);d.open=true;d.scrollIntoView({block:'center'});d.classList.add('flash');setTimeout(()=>d.classList.remove('flash'),1400)}});
+$('sl').oninput=e=>{stop();show(+e.target.value)};
+// activities
+$('acts').innerHTML=A.map(a=>`<details id="a-${a.id}" style="--c:var(--${a.c})"><summary><span class="d">${rng(a)}</span><span class="t">${esc(a.n)}</span><span class="p">${a.tm} · ${a.pd}</span></summary><div class="dt"><p>${esc(a.d)}</p><p><b>Schedule:</b> ${esc(a.sc)}</p><p><b>What the week held:</b> ${esc(a.w)}</p></div></details>`).join('');
+// days
+const DAYS={gym:{l:'Gym-first day',e:[
+['4:00 AM',4,6,'bak','Wake up and go to the gym (bodybuilding)'],['6:30 AM',6.5,7.5,'gap','Leave for work'],['7:30 AM to ~2:30–3:00 PM',7.5,14.75,'tp','Work at Tradespace as a Business Development Rep'],['3:30 to 4:30–5:00 PM',15.5,16.75,'lsat','LSAT study'],['6:00 to 8:00 PM',18,20,'casa','CASA training, twice a week (March to May 2026). Other evenings: Country Central reviews and features.'],['Evening',20,21.5,'gap','Commute home (about 90 minutes)']]},
+work:{l:'Work-first day',e:[['5:00 AM',5,5.5,'gap','Wake up'],['5:30 AM to ~12:30 PM',5.5,12.5,'tp','Work at Tradespace as a Business Development Rep'],['~12:30 to 2:00 PM',12.5,14,'gap','Walk and break'],['2:00 to 3:30 PM',14,15.5,'lsat','LSAT study'],['4:00 to 5:30 PM',16,17.5,'cc','Country Central: reviews, features, and research'],['6:30 to 8:30 PM',18.5,20.5,'bak','Gym (bodybuilding)']]}};
+const X0=4,X1=22,pc=v=>((v-X0)/(X1-X0)*100).toFixed(2)+'%';
+function day(k){
+ $('tabs').innerHTML=Object.entries(DAYS).map(([id,d])=>`<button class="tab" data-day="${id}" aria-pressed="${id===k}">${d.l}</button>`).join('')+'<button class="tab play" id="dplay">▶ Play this day</button>';
+ const e=DAYS[k].e;
+ $('dbar').innerHTML=e.map((v,i)=>`<button class="seg" data-i="${i}" style="left:${pc(v[1])};width:${((v[2]-v[1])/(X1-X0)*100).toFixed(2)}%;--c:var(--${v[3]})" title="${esc(v[0]+': '+v[4])}" aria-label="${esc(v[4])}"></button>`).join('');
+ $('ax').innerHTML=[4,6,8,10,12,14,16,18,20,22].map(h=>`<span style="left:${pc(h)}">${h%12||12}${h<12||h==24?'a':'p'}</span>`).join('');
+ $('evs').innerHTML=e.map((v,i)=>`<div class="ev" data-i="${i}" style="--c:var(--${v[3]})"><b>${v[0]}</b><span>${esc(v[4])}</span></div>`).join('');$('dbar').insertAdjacentHTML('beforeend','<i class="ph" id="ph"></i>');$('clk').textContent=''}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-day]');if(t){cd=t.dataset.day;stopDay();day(cd)}});
+['mouseover','focusin'].forEach(ev=>document.addEventListener(ev,e=>{const t=e.target.closest('.seg,.ev');
+ document.querySelectorAll('.hv').forEach(x=>x.classList.remove('hv'));
+ if(t)document.querySelectorAll(`[data-i="${t.dataset.i}"]`).forEach(x=>{if(x.closest('#dbar,#evs'))x.classList.add('hv')})}));
+// travel
+$('tv').innerHTML=[['Nashville, TN','Country Central: interviews and networking'],['Nashville, TN','Country Central: CMA Fest media'],['Nashville, TN','Country Central: artist Opry debut and networking'],['Palo Alto, CA','Tradespace: IP Counsel Cafe Conference'],['Winnipeg, Canada','Tradespace: AUTM Annual Conference'],['Washington, DC','Tradespace: IP Owners Conference'],['Sausalito, CA','Tradespace: company offsite on new pitches, products, and designs']].map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+// work
+const B='https://countrycentral.com/',R='reviews/',RU={'Oct 12':'uncategorized/riley-green-lainey-wilson-more-single-reviews/','Oct 5':R+'miranda-lambert-dexter-the-moonrocks-more-single-reviews/','Sep 28':R+'kenny-chesney-jordan-davis/','Sep 21':R+'morgan-wallen-muscadine-bloodline/','Sep 14':R+'luke-bryan-eric-church/','Sep 7':R+'hudson-westbrook-waylon-wyatt/','Aug 31':R+'riley-green-marshmello/','Aug 24':R+'zach-top-ty-myers/','Aug 17':R+'orville-peck-hudson-westbrook/','Aug 3':R+'riley-green-billy-strings/','Jul 27':R+'morgan-wallen-shaboozey-more-single-reviews/','Jul 13':R+'wyatt-flores-tucker-wetmore/','Jun 8':R+'taylor-swift-shaboozey-more-single-reviews/','May 25':R+'bailey-zimmerman-jesse-welles-single-reviews/','May 11':R+'koe-wetzel-brad-paisley-more-single-reviews/','Apr 21':R+'cody-johnson-kacey-musgraves-more-single-reviews/','Mar 2':R+'warren-zeiders-ty-myers-more-single-reviews/','Feb 17':R+'ella-langley-luke-combs-more-single-reviews/'};
+const S=[['Trust the Land','Kolton Moore & The Clever Few','Oct 12'],['Indebted','Joshua Slone','Oct 12'],['Snakeskin Boots','Miranda Lambert ft. Ella Langley','Oct 5'],['In Due Time','Colin Lynch','Oct 5'],['It Just Got Weird','Kenny Chesney ft. Megan Moroney','Sep 28'],['What More Could You Want','Kaitlin Butts','Sep 28'],['You Only Love To Break My Heart','William Beckmann','Sep 28'],['Bartender in Destin','Riley Green','Sep 21'],['Mr. Middleman','Jackson Wendell','Sep 21'],['Pair of Dice','Sierra Ferrell','Sep 14'],['Pawn Shop Ring','Will Backerman','Sep 14'],['I’m Sorry, But I Love You','Waylon Wyatt & Carter Faith','Sep 7'],['The Moon And The Wolf','Jackson Dean ft. Laci Kaye Booth','Sep 7'],['Too Much of a Woman','Evan Cyote','Aug 31'],['Paper Tiger','Chandler Walters','Aug 24'],['Does Your GF Know We Kissed','Elizabeth Nichols','Aug 17'],['dance around it','Ashley Cooke','Aug 17'],['Mess','Jordan Davis','Aug 17'],['Imagine That','Riley Green','Aug 3'],['Memo','Dasha','Aug 3'],['How to Not','Zach John King','Aug 3'],['Math of Us','Patrick Droney ft. Kelsea Ballerini','Jul 27'],['Makin’ Me a Liar','Kameron Marlowe','Jul 13'],['Love’s Insane','Morgan Wade','Jul 13'],['Phone, Keys, Wallet','Lainey Wilson & John Mayer','Jun 8'],['Ethereal Redneck Shit','Laci Kaye Booth','Jun 8'],['Fear of Flying','Grace Tyler','May 25'],['Pictures of You','Buffalo Traffic Jam','May 11'],['Don’t Ask Me','Vincent Mason','Apr 21'],['Mailbox','Owen Riegling','Apr 21'],['Like God Intended','Jordan Davis','Mar 2'],['Fear in God','Sam Barber and Avery Anna','Feb 17']];
+const W=[['Interviews','Meghan Patrick, In Her Own Words','features/meghan-patrick-in-her-own-words/','Jan 2026'],['Interviews','Zach John King, In His Own Words','features/zach-john-king/','Aug 2026'],
+...[['Morgan Wallen, Dangerous: The Double Album','morgan-wallen-dangerous-the-double-album-album-review','Jan'],['Natalie Del Carmen, Pastures','natalie-del-carmen-pastures-album-review','Feb'],['Clay Street Unit, Sin & Squalor','clay-street-unit-sin-squalor-album-review','Feb'],['Luke Combs, The Way I Am','luke-combs-the-way-i-am-album-review','Mar'],['Ella Langley, Dandelion','ella-langley-dandelion-album-review','Apr'],['Jackson Dean, Magnolia Sage','jackson-dean-magnolia-sage-album-review','Apr'],['Mack Geiger, Walk a Straight Line','mack-geiger-walk-a-straight-line-album-review','Jun'],['Anna Graves, America’s Greatest Burnout','anna-graves-americas-greatest-burnout','Aug'],['Buffalo Traffic Jam, Pictures of You','buffalo-traffic-jam-pictures-of-you','Aug'],['Zach John King, I’m What You Get','zach-john-king-im-what-you-get-review','Aug'],['Luke Bryan, Signs','luke-bryan-signs','Sep'],['Max McNown, Leave On a Light','max-mcnown-leave-on-a-light-album-review','Oct']].map(x=>['Albums',x[0],R+x[1]+'/',x[2]+' 2026']),
+...[['Ashley Anne, GENERATIONAL HEARTBREAK','ashley-anne-generational-heartbreak-ep-review','May'],['Slater Nalley, Hey Georgia','slater-nalley-hey-georgia','Aug'],['Joshua Slone, Long Life Living for a Lover Boy','joshua-slone-long-life-living-for-a-lover-boy','Oct']].map(x=>['EPs',x[0],R+x[1]+'/',x[2]+' 2026']),
+['Features','Four Expectations for Ella Langley’s “Dandelion”','features/four-expectations-for-ella-langleys-dandelion/','Feb 2026'],['Features','Can Carter Faith Take the Leap to Superstardom?','features/can-carter-faith-take-the-leap-to-superstardom/','Sep 2026'],['Features','Gabriella Rose’s “I Just Wanna Be Loved”','features/the-extraterrestrial-spectacle-of-gabriella-roses-i-just-wanna-be-loved/','Oct 2026'],['Features','Ian Munsick Announces “Geronimo” (news)','news/ian-munsick-announces-new-single-geronimo/','Jan 2026'],
+...S.map(x=>['Singles','“'+x[0]+'” ('+x[1]+')',RU[x[2]],x[2]+', 2026'])];
+let flt='All',q='';
+function work(){
+ const cats=['All','Interviews','Albums','EPs','Features','Singles'];
+ $('chips').innerHTML=cats.map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===flt}">${c} (${c==='All'?W.length:W.filter(w=>w[0]===c).length})</button>`).join('')+'<button class="chip" id="rnd">🎲 Surprise me</button><input id="q" type="search" placeholder="Search artist or title" aria-label="Search" value="'+esc(q)+'">';
+ $('q').oninput=e=>{q=e.target.value;list();$('q').focus()};list()}
+function list(){const r=W.filter(w=>(flt==='All'||w[0]===flt)&&w[1].toLowerCase().includes(q.toLowerCase()));
+ $('cnt').textContent=`Showing ${r.length} of ${W.length}`;
+ $('wl').innerHTML=r.map(w=>`<div class="wi"><a href="${B+w[2]}" target="_blank" rel="noopener">${esc(w[1])}</a><small>${w[3]}</small></div>`).join('')}
+document.addEventListener('click',e=>{const c=e.target.closest('[data-f]');if(c){flt=c.dataset.f;work()}});
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const EM={lsat:'📚',bar:'☕',mgr:'🥐',cc:'🎸',tp:'🚀',ct:'📝',ca:'⚖️'},KE={bak:'🏋️',tp:'💼',lsat:'📚',casa:'💜',cc:'✍️',gap:'🚶'};
+const MS={3:'☕ First day as Head Barista · 📚 LSAT prep begins',11:'🥐 Promoted to Bakery Manager',17:'🎸 Country Central writing begins',19:'🍞 Bakery chapter wraps up',21:'🚀 Tradespace starts, CASA training begins',23:'⚖️ CASA advocate begins',28:'📍 You are here'};
+let tmr=null,dt=null,cd='gym';
+function fun(m,on,tot){const t=(MS[m]||'')+(on.length>=5?(MS[m]?' · ':'')+'🤹 five things at once':'');
+ $('ms').textContent=t;$('ms').style.display=t?'inline-block':'none';$('mt').style.width=Math.min(100,tot/70*100)+'%'}
+function stop(){if(tmr){clearInterval(tmr);tmr=null;$('play').textContent='▶ Play my 29 months'}}
+$('play').onclick=()=>{if(tmr){stop();return}
+ show(sel>=28?0:sel);$('play').textContent='⏸ Pause';
+ tmr=setInterval(()=>{if(sel>=28){clearInterval(tmr);tmr=null;$('play').textContent='↻ Replay';burst();return}show(sel+1)},reduce?200:380)};
+function burst(){if(reduce)return;const em=['🎉','✨','🎸','📚','⚖️','🚀','☕','🥐'];
+ for(let i=0;i<28;i++){const s=document.createElement('span');s.className='cf';s.textContent=em[i%em.length];s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*.6+'s';s.style.fontSize=(16+Math.random()*16)+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),3200)}}
+function stopDay(){if(dt){clearInterval(dt);dt=null}}
+function playDay(){if(dt){stopDay();$('dplay').textContent='▶ Play this day';return}
+ const e=DAYS[cd].e,end=e[e.length-1][2];let h=e[0][1]-.25;$('dplay').textContent='⏸ Pause';
+ dt=setInterval(()=>{h+=.08;
+  if(h>end+.25){stopDay();$('dplay').textContent='↻ Replay';$('clk').textContent='🛌 Day complete';document.querySelectorAll('#evs .ev').forEach(x=>x.classList.remove('hv'));return}
+  $('ph').style.left=pc(h);const c=e.find(v=>h>=v[1]&&h<v[2]),hh=Math.floor(h),mm=Math.floor((h-hh)*12)*5;
+  $('clk').textContent=`${hh%12||12}:${String(mm).padStart(2,'0')} ${hh<12?'AM':'PM'} · `+(c?KE[c[3]]+' '+c[4].split('. ')[0]:'… free time');
+  document.querySelectorAll('#evs .ev').forEach((x,i)=>x.classList.toggle('hv',c===e[i]))},reduce?20:50)}
+document.addEventListener('click',e=>{if(e.target.id==='dplay')playDay();
+ if(e.target.id==='rnd'){const w=W[Math.floor(Math.random()*W.length)];$('cnt').innerHTML=`🎲 Try this one: <a href="${B+w[2]}" target="_blank" rel="noopener">${esc(w[1])}</a> (${w[0].toLowerCase()})`}});
+const ST=[[29,'','months since graduation'],[150,'','articles and reviews, approx.'],[5,'','cities on the road'],[5,'','things at once, at peak']];
+$('stats').innerHTML=ST.map(x=>`<div class="st"><b data-n="${x[0]}" data-s="${x[1]}">${reduce?x[0]+x[1]:0}</b><span>${x[2]}</span></div>`).join('')+'<div class="st"><b>4:00 AM</b><span>earliest alarm</span></div>';
+if(!reduce){const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1000);document.querySelectorAll('.st b[data-n]').forEach(b=>b.textContent=Math.round(b.dataset.n*(1-Math.pow(1-p,3)))+(p>=1?b.dataset.s:''));if(p<1)requestAnimationFrame(f)})(t0)}
+let ac=null,mg=null,mOn=false,muted=false,nt=0,step=0,tm=null;const bufs={};
+const CH=[[98,146.83,196,246.94],[130.81,196,261.63,329.63],[146.83,220,293.66,369.99],[82.41,164.81,196,246.94]],PAT=[0,1,2,3,2,1,2,3],BPM=96;
+function pl(f){if(bufs[f])return bufs[f];const sr=ac.sampleRate,n=sr*2|0,b=ac.createBuffer(1,n,sr),d=b.getChannelData(0),L=Math.round(sr/f),y=new Float32Array(L);
+ for(let i=0;i<L;i++)y[i]=Math.random()*2-1;let p=0;for(let i=0;i<n;i++){d[i]=y[p]*.6;const q=(p+1)%L;y[p]=.4985*(y[p]+y[q]);p=q}return bufs[f]=b}
+function sched(){while(nt<ac.currentTime+.3){const c=CH[Math.floor(step/8)%4],f=c[PAT[step%8]],o=ac.createBufferSource();o.buffer=pl(f);o.connect(mg);o.start(nt);nt+=30/BPM;step++}}
+function startM(){if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=3200;mg=ac.createGain();mg.gain.value=.35;mg.connect(lp);lp.connect(ac.destination)}
+ ac.resume();if(!tm){nt=ac.currentTime+.1;tm=setInterval(sched,100)}mOn=true;$('mus').textContent='🔊 Music on'}
+function stopM(){clearInterval(tm);tm=null;if(ac)ac.suspend();mOn=false;$('mus').textContent='🔇 Music off'}
+$('mus').onclick=()=>{if(mOn){muted=true;stopM()}else{muted=false;startM()}};
+const first=e=>{$('toast').style.opacity=0;if(e.target.id!=='mus'&&!muted&&!mOn){try{startM()}catch(x){}}};
+document.addEventListener('pointerdown',first,{once:true});document.addEventListener('keydown',first,{once:true});
+setTimeout(()=>{$('toast').style.opacity=0},7000);
+document.addEventListener('visibilitychange',()=>{if(ac&&mOn){document.hidden?ac.suspend():ac.resume()}});
+gantt();show(28);day('gym');work();
+</script></body></html>
