@@ -1,0 +1,509 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Rajan Case File</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Caveat:wght@600&display=swap">
+<style>
+/* Concept: undergrad as a court case file, styled as a soft planner: mist paper, deep teal ink, blue and sage-green accents. */
+:root{
+  --paper:#eef5f2; --card:#fbfdfc; --ink:#1d3338; --mute:#5b7378; --line:#cfe0da; --on:#1d3338;
+  --orange:#8fbad8; --accent-ink:#2f6a93; --orange-soft:#d4e5f1; --sage:#b4d6bf; --butter:#f9dde6; --pink:#f4c6d6; --pink-ink:#b04d77; --shadow:rgba(30,80,90,.13);
+  --disp:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --hand:'Caveat','Comic Sans MS',cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#132220; --card:#1b2d2b; --ink:#e6f1ee; --mute:#9db8b3; --line:#2f4744;
+  --orange:#7fb0d4; --accent-ink:#9cc6e4; --orange-soft:#254a60; --sage:#35574a; --butter:#5a2f42; --pink:#7a3f58; --pink-ink:#f0a9c4; --shadow:rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#132220; --card:#1b2d2b; --ink:#e6f1ee; --mute:#9db8b3; --line:#2f4744;
+  --orange:#7fb0d4; --accent-ink:#9cc6e4; --orange-soft:#254a60; --sage:#35574a; --butter:#5a2f42; --pink:#7a3f58; --pink-ink:#f0a9c4; --shadow:rgba(0,0,0,.35);color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.5 var(--disp);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+button{font:inherit;color:inherit;cursor:pointer}
+.mono{font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+.hand{font-family:var(--hand);font-size:22px;line-height:1.15}
+.serif{font-family:var(--serif);font-style:italic}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:2px solid var(--line);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-left,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:10}
+nav .wrap{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;border:2px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600;background:var(--card)}
+nav a:hover{background:var(--orange)}
+
+/* shared bits */
+.win{background:var(--card);border:2px solid var(--line);box-shadow:0 8px 22px var(--shadow);border-radius:18px}
+.win>.bar{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--line);padding:8px 14px}
+.win>.bar svg{flex:none}
+.win>.body{padding:16px}
+.hl{background:linear-gradient(transparent 58%,var(--sage) 58% 94%,transparent 94%);padding:0 .1em}
+.tag{display:inline-block;border:2px solid var(--line);border-radius:999px;padding:1px 10px;font-size:12px;font-weight:600;background:var(--card)}
+.note{background:var(--orange);color:var(--on);padding:14px 16px;border:2px solid var(--on);border-radius:12px;position:relative;transform:rotate(-1.2deg)}
+.note::before{content:"";position:absolute;left:50%;top:-9px;width:54px;height:16px;background:var(--on);transform:translateX(-50%) rotate(2deg)}
+.note.sage{background:var(--sage);color:var(--ink)}
+.note.sage::before{background:var(--ink)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:6px 12px;font-weight:600;font-size:14px}
+.tab[aria-pressed="true"],.tab[aria-selected="true"]{background:var(--orange);color:var(--on);box-shadow:0 8px 22px var(--shadow)}
+section{padding-top:72px}
+.ex-head{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:24px}
+.ex-letter{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(64px,12vw,120px);line-height:.8;color:var(--accent-ink);-webkit-text-stroke:0}
+.ex-head h2{font-size:clamp(30px,5vw,52px);line-height:1;font-weight:800;letter-spacing:-.02em}
+.ex-head .mono{color:var(--mute);margin-bottom:6px}
+.lede{max-width:62ch;color:var(--mute)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.big{font-size:clamp(40px,7vw,64px);font-weight:800;line-height:1;letter-spacing:-.03em}
+.sub{margin-top:24px;margin-bottom:12px;font-size:22px;font-weight:800;letter-spacing:-.01em}
+
+/* cover */
+.cover{padding-top:48px;display:grid;gap:24px}
+.cover h1{font-size:clamp(44px,9vw,104px);line-height:.92;font-weight:800;letter-spacing:-.035em}
+.cover .caption{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,32px);max-width:30ch}
+.docket{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0;border:2px solid var(--line);background:var(--card);box-shadow:0 8px 22px var(--shadow)}
+.docket div{padding:12px 14px;border-right:2px solid var(--line);border-bottom:2px solid var(--line);margin:0 -2px -2px 0}
+.docket b{display:block;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)}
+.stamp{display:inline-block;justify-self:start;margin:10px 0 6px 6px;transform:rotate(-3deg);transform-origin:left center;border:3px solid var(--orange);color:var(--orange);padding:2px 12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:14px;font-size:14px}
+
+/* scoreboard */
+.rank{text-align:center;padding:18px 12px}
+.rank .big{color:var(--ink)}
+.rank p{margin-top:6px;font-size:14px;color:var(--mute)}
+
+/* events */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:16px}
+.ev{padding:14px;border:2px solid var(--line);background:var(--card);border-radius:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ev:nth-child(3n+1){transform:rotate(-.6deg)}.ev:nth-child(3n+2){transform:rotate(.5deg)}
+.ev h4{font-size:17px;line-height:1.2;font-weight:800}
+.ev p{font-size:14px;color:var(--mute)}
+.ev[hidden]{display:none}
+
+/* teaching room */
+.room .body{display:grid;gap:16px}
+.steps{display:flex;flex-wrap:wrap;gap:6px}
+.step{border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:600}
+.step[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+.slide{min-height:260px;display:grid;gap:12px;align-content:start}
+.slide .q{font-size:clamp(22px,3.4vw,32px);font-weight:800;line-height:1.1;color:var(--accent-ink);-webkit-text-stroke:0}
+.slide ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.mini{border:2px solid var(--line);background:var(--paper);border-radius:14px}
+.mini h5{margin:0;padding:6px 10px;border-bottom:2px solid var(--line);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.mini p,.mini ul{padding:10px}
+.mini ul{margin:0 0 0 18px;padding:10px 10px 10px 0}
+.ladder{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.rung{flex:1 1 150px;border:2px solid var(--line);background:var(--paper);padding:10px;border-radius:14px;position:relative}
+.rung b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.rung.here{background:var(--orange);color:var(--on)}
+.quote{border-left:6px solid var(--orange);padding:4px 0 4px 14px;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.3}
+.nums{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.nums li{display:flex;gap:12px;align-items:flex-start}
+.nums i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--card);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:14px}
+.turn{display:grid;gap:10px;border-top:2px dashed var(--line);padding-top:14px}
+.anat{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.anat span{font-size:12px;font-weight:600}
+.anat .arr{color:var(--mute)}
+
+/* newsletter */
+.nl{background:var(--sage);color:var(--ink);border:2px solid var(--line);box-shadow:0 8px 22px var(--shadow);border-radius:14px}
+.nl header{padding:16px;border-bottom:2px solid var(--line)}
+.nl h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(34px,5vw,48px);line-height:1}
+.nl .cal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 16px}
+.nl .cal div{border:2px solid var(--line);background:var(--card);padding:8px;font-size:13px;text-align:center}
+.nl .cal b{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:20px}
+.nl .read{padding:0 16px 16px;font-size:14px}
+
+/* DJLS */
+.shelf{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.spine{width:96px;height:210px;border:2px solid var(--line);border-radius:14px 4px 2px 2px;background:var(--sage);display:flex;flex-direction:column;justify-content:space-between;padding:10px 8px;box-shadow:0 8px 22px var(--shadow);text-align:center}
+.spine.v4{height:236px;background:var(--orange);color:var(--on)}
+.spine b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;line-height:1}
+.redline{font-family:var(--serif);font-size:22px;line-height:1.5}
+.redline del{color:#c0392b;text-decoration-thickness:2px}
+.redline ins{text-decoration:none;background:var(--butter);padding:0 2px}
+.redline.clean del{display:none}.redline:not(.clean) ins{display:none}
+
+/* clippings */
+.clip{display:block;text-decoration:none;padding:14px;border:2px solid var(--line);background:var(--card);border-radius:12px;box-shadow:0 8px 22px var(--shadow)}
+.clip:hover{background:var(--butter)}
+.clip h4{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.15;margin-top:4px}
+
+/* thesis */
+.head{max-width:340px;width:100%;margin:0 auto;display:block}
+.gauge{height:26px;border:2px solid var(--line);border-radius:14px;position:relative;background:var(--paper)}
+.gauge i{position:absolute;inset:0 auto 0 0;background:var(--orange);border-radius:2px}
+.gauge u{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px dashed var(--ink)}
+.res{display:none;padding:12px;border:2px solid var(--line);background:var(--butter);color:var(--on);border-radius:14px}
+
+/* chart */
+.chart{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:minmax(110px,170px) 1fr 76px;gap:10px;align-items:center;font-size:14px}
+.track{position:relative;height:18px;border-left:2px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0 calc(20% - 1px),color-mix(in srgb,var(--line) 18%,transparent) calc(20% - 1px) 20%)}
+.rng{position:absolute;top:5px;height:8px;border-radius:0 4px 4px 0;background:var(--orange)}
+.dot{position:absolute;top:3px;width:12px;height:12px;border-radius:50%;background:var(--orange);border:2px solid var(--card);margin-left:-6px;outline:1px solid var(--line)}
+.axis{display:grid;grid-template-columns:minmax(110px,170px) 1fr 76px;gap:10px;font-size:12px;color:var(--mute)}
+.axis div{display:flex;justify-content:space-between}
+.val{font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
+@media(max-width:520px){.row,.axis{grid-template-columns:96px 1fr 62px;gap:6px;font-size:13px}}
+
+/* day strip */
+.strip{position:relative;height:64px;border:2px solid var(--line);background:var(--paper);border-radius:14px;overflow:hidden}
+.blk{position:absolute;top:8px;bottom:8px;border:2px solid var(--line);border-radius:12px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap;padding:0 4px;color:var(--on)}
+.blk.solid{background:var(--orange)}
+.blk.flex{background:repeating-linear-gradient(135deg,var(--orange-soft) 0 6px,transparent 6px 12px);color:var(--ink);border-style:dashed}
+.blk.gym{background:var(--sage);color:var(--ink)}
+.ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:4px;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--mute)}
+.legend i{display:inline-block;width:16px;height:12px;border:2px solid var(--line);vertical-align:-2px;margin-right:6px;border-radius:2px}
+.daylist{margin:0;padding-left:20px;display:grid;gap:4px}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}
+.tl div{border-top:6px solid var(--orange);padding-top:8px}
+.tl b{display:block}
+
+footer{margin-top:80px;border-top:2px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+@media (prefers-reduced-motion:no-preference){.tab,.step,.ev{transition:transform .15s,background .15s}.tab:hover,.step:hover{transform:translateY(-2px)}}
+@media (max-width:520px){.spine{width:84px}}
+.cover h1,.ex-head h2,.big,.sub,.ev h4,.clip h4{font-family:var(--serif);font-weight:700;letter-spacing:-.02em}
+.cover h1{line-height:1}.sub{font-size:26px}
+.ev h4{font-size:19px}
+.stamp{border-radius:999px;border-width:2px;letter-spacing:.08em;font-size:12px;padding:4px 14px;background:var(--card)}
+.docket div{border-color:var(--line)}
+.tab[aria-pressed="true"],.tab[aria-selected="true"]{box-shadow:0 4px 12px var(--shadow)}
+.note::before{display:none}
+.stamp{color:var(--pink-ink);border-color:var(--pink-ink)}
+.ex-letter{color:var(--pink-ink)}
+.hl{background:linear-gradient(transparent 58%,var(--pink) 58% 94%,transparent 94%)}
+.tag{background:var(--pink);color:var(--ink);border-color:transparent}
+.spine.v4{background:var(--pink);color:var(--on)}
+.nums i{background:var(--pink-ink);color:var(--card)}
+.quote{border-left-color:var(--pink)}
+.rung.here{background:var(--pink);color:var(--on)}
+.ticks u,.gauge u{border-color:var(--pink-ink)}
+.doodles{display:flex;gap:18px;align-items:center;flex-wrap:wrap;color:var(--ink)}
+.doodles svg{height:56px;width:auto}
+.doodles span{font-family:var(--hand);font-size:26px;color:var(--mute)}
+nav a{border-width:1.5px}
+</style>
+
+<nav aria-label="Exhibits"><div class="wrap">
+<a href="#cover">Cover</a><a href="#a">A · Moot Court</a><a href="#b">B · DJLS</a><a href="#c">C · Vanguard</a><a href="#d">D · Thesis</a><a href="#e">E · Sleep ML</a><a href="#f">F · The week</a><a href="#g">G · Also filed</a>
+</div></nav>
+
+<main class="wrap">
+
+<header class="cover" id="cover">
+  <span class="stamp">Case file · UC Davis 2020 to 2024</span>
+  <h1>In re: <span class="hl">Aishwarya Rajan</span></h1>
+  <p class="caption">Cognitive Science and Political Science, with a lot of extracurriculars filed as exhibits.</p>
+  <div class="doodles" aria-hidden="true">
+    <svg viewBox="0 0 64 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14v28M20 8v40M44 8v40M52 14v28M20 28h24"/></svg>
+    <svg viewBox="0 0 64 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22h34v14a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14zM44 26h6a6 6 0 0 1 0 12h-6M22 8c-3 3 3 5 0 9M32 8c-3 3 3 5 0 9"/></svg>
+    <svg viewBox="0 0 64 56" fill="none" stroke="#5fa37a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 50C32 30 40 14 56 8c2 18-8 36-24 42zM32 50C28 38 20 30 8 28"/></svg>
+    <span>lift at 5:30, coffee after, walks always</span></div>
+  <div class="docket">
+    <div><b>Degrees</b>BS Cognitive Science, BA Political Science</div>
+    <div><b>Study abroad</b>London School of Economics, Fall 2023</div>
+    <div><b>Moot Court</b>Co-president, Jan 2023 to Jan 2024</div>
+    <div><b>Journals</b>DJLS editor, Vols. 3 and 4</div>
+    <div><b>Thesis</b>EEG electrodes and visual decoding</div>
+    <div><b>Wake-up call</b>4:30 AM</div>
+  </div>
+</header>
+
+<!-- A -->
+<section id="a">
+  <div class="ex-head"><span class="ex-letter">A</span><div><p class="mono">Exhibit A · Jan 2023 to Jan 2024 · 8 to 15 hrs/week</p><h2>Moot Court</h2></div></div>
+  <p class="lede">I was a member in 2022, then co-president. My co-president was away for most of the year, so I built most of the teaching materials, events and structure myself.</p>
+
+  <div class="grid g3" style="margin-top:24px">
+    <div class="win rank"><div class="big">#15</div><p>Undergraduate Oral Advocacy Moot Court Program (AMCA)</p></div>
+    <div class="win rank"><div class="big">#10</div><p>Undergraduate Brief Writing Moot Court Program (AMCA)</p></div>
+    <div class="win rank"><div class="big">20+</div><p>members I taught constitutional issues to</p></div>
+  </div>
+
+  <h3 class="sub">Events and projects on the docket</h3>
+  <div class="chips" id="evChips" role="group" aria-label="Filter events"></div>
+  <div class="events" id="events"></div>
+
+  <h3 class="sub">The Teaching Room</h3>
+  <p class="lede" style="margin-bottom:14px">Snippets from the case-breakdown decks I put together for members. Pick a case and step through the highlights.</p>
+  <div class="win room">
+    <div class="bar"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M12.5 12.5L18 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="mono" id="roomTitle">Moot Court · Summer Workshop</span></div>
+    <div class="body">
+      <div class="tabs" id="caseTabs" role="tablist" aria-label="Cases"></div>
+      <div class="steps" id="stepBtns" role="group" aria-label="Deck steps"></div>
+      <div class="slide" id="slide" aria-live="polite"></div>
+      <div class="turn" id="turn"></div>
+    </div>
+  </div>
+  <div class="anat" style="margin-top:14px"><span class="mono" style="color:var(--mute)">Every deck followed the same beats</span>
+    <span class="tag">Concept</span><span class="arr">→</span><span class="tag">Issue</span><span class="arr">→</span><span class="tag">Facts</span><span class="arr">→</span><span class="tag">Case history</span><span class="arr">→</span><span class="tag">Arguments</span><span class="arr">→</span><span class="tag">Decision</span><span class="arr">→</span><span class="tag">Test or key idea</span><span class="arr">→</span><span class="tag">Back to the issue</span><span class="arr">→</span><span class="tag">Homework</span></div>
+  <p class="lede" style="margin-top:8px">The full decks also used memes to keep the room awake, and each ended with homework and a reminder to pick a side.</p>
+
+  <h3 class="sub">Summer workshop, Issue No. 1 · June 2023</h3>
+  <div class="nl">
+    <header><p class="mono">Moot Court newsletter</p><h3>Summer Newsletter</h3><p style="margin-top:8px;max-width:60ch">Video recordings of case breakdowns and slides went on a shared drive, with discussion threads in Slack channels for each issue.</p></header>
+    <div class="cal"><div><b>Tuesday</b>12 PM · Issue 1 breakdown</div><div><b>Thursday</b>12 PM · Issue 2 breakdown</div><div><b>Friday</b>Questions answered</div></div>
+    <div class="read"><b>Reading.</b> Issue 1: <i>United States v. One Package</i>, <i>Eisenstadt v. Baird</i>. Issue 2: <i>Sherbert v. Verner</i>, <i>Wisconsin v. Yoder</i>, <i>Employment Division v. Smith</i>.</div>
+  </div>
+</section>
+
+<!-- B -->
+<section id="b">
+  <div class="ex-head"><span class="ex-letter">B</span><div><p class="mono">Exhibit B · Jan 2022 to Jun 2024 · about 4 hrs/week</p><h2>Davis Journal of Legal Studies</h2></div></div>
+  <p class="lede">I edited student legal research and gave detailed feedback and research support for the annual journal. Fridays at end of day were for DJLS work, plus one hour-long meeting a week at night.</p>
+  <div class="grid g2" style="margin-top:24px;align-items:start">
+    <div class="shelf" aria-label="Volumes I edited">
+      <div class="spine"><span class="mono">DJLS</span><b>Volume 3</b><span class="mono">Spring 2023<br>Editor</span></div>
+      <div class="spine v4"><span class="mono">DJLS</span><b>Volume 4</b><span class="mono">Spring 2024<br>Editor</span></div>
+    </div>
+    <div class="win"><div class="bar"><span class="mono">Edit view</span><button class="tab" id="redBtn" style="margin-left:auto;padding:2px 10px" aria-pressed="false">Show clean copy</button></div>
+      <div class="body"><p class="redline" id="red">The authors <del>argue that</del><ins>show how</ins> courts <del>kind of</del> balance <del>a lot of different</del><ins>competing</ins> interests.</p><p class="mono" style="margin-top:10px;color:var(--mute)">Illustrative sentence, not from a real submission</p></div></div>
+  </div>
+</section>
+
+<!-- C -->
+<section id="c">
+  <div class="ex-head"><span class="ex-letter">C</span><div><p class="mono">Exhibit C · Dec 2020 to Aug 2021 · 11 to 14 hrs/week</p><h2>Davis Vanguard Court Watch</h2></div></div>
+  <p class="lede">I sat in on live hearings and wrote them up for the Vanguard, a local news site. Here are some of my 2021 articles.</p>
+  <div class="grid g3" style="margin-top:24px">
+    <a class="clip" href="https://davisvanguard.org/2021/03/father-son-duo-in-a-joint-trial-against-charges-of-armed-pot-robbery/" target="_blank" rel="noopener"><span class="mono">Davis Vanguard · Mar 2021</span><h4>Father-Son Duo Facing Charges of Armed Pot Robbery</h4></a>
+    <a class="clip" href="https://www.davisvanguard.org/2021/02/judge-agrees-with-public-defender-courts-dealing-poorly-with-pandemic-and-speedy-trials/" target="_blank" rel="noopener"><span class="mono">Davis Vanguard · Feb 2021</span><h4>Judge Agrees with Public Defender</h4></a>
+    <a class="clip" href="https://davisvanguard.org/2021/02/a-cat-fight-over-late-discovery-breaks-out-between-opposing-counsel/" target="_blank" rel="noopener"><span class="mono">Davis Vanguard · Feb 2021</span><h4>A 'Cat Fight' Over Late Discovery Breaks Out Between Opposing Counsel</h4></a>
+  </div>
+</section>
+
+<!-- D -->
+<section id="d">
+  <div class="ex-head"><span class="ex-letter">D</span><div><p class="mono">Exhibit D · Luck Lab · Honors thesis</p><h2>Does electrode placement change what EEG can decode?</h2></div></div>
+  <p class="lede">EEG records brain activity with scalp electrodes. A decoder is a machine-learning model that guesses what a person was looking at from that activity. High-density caps cost more and take longer to set up, so I asked whether fewer electrodes, or different placement, would hurt decoding.</p>
+  <div class="grid g3" style="margin-top:24px">
+    <div class="win rank"><div class="big">31</div><p>participants</p></div>
+    <div class="win rank"><div class="big">54</div><p>real-world scenes to tell apart</p></div>
+    <div class="win rank"><div class="big">5</div><p>electrode montages compared</p></div>
+  </div>
+  <div class="grid g2" style="margin-top:24px;align-items:start">
+    <div class="win"><div class="bar"><span class="mono">Pick a montage</span></div><div class="body" style="display:grid;gap:12px">
+      <div class="tabs" id="mTabs" role="group" aria-label="Montages"></div>
+      <svg class="head" id="headSvg" viewBox="-110 -125 220 240" role="img" aria-label="Schematic head with electrode dots"></svg>
+      <p id="mCap" style="font-size:14px;color:var(--mute)"></p>
+      <p class="mono" style="color:var(--mute)">Schematic layout, not the exact montage maps</p>
+    </div></div>
+    <div class="win"><div class="bar"><span class="mono">Guess the winner</span></div><div class="body" style="display:grid;gap:12px">
+      <p>Which montage decoded the scenes best?</p>
+      <div class="tabs" id="guess"></div>
+      <div class="res" id="gres"></div>
+      <div>
+        <p class="mono" style="margin-bottom:6px">Peak accuracy against chance</p>
+        <div class="gauge" role="img" aria-label="Peak decoding about 7 percent, chance 1.85 percent"><i style="width:calc(7/8*100%)"></i><u style="left:calc(1.85/8*100%)"></u></div>
+        <div class="ticks"><span>0%</span><span>chance 1.85% (dashed)</span><span>8%</span></div>
+        <p style="font-size:14px;margin-top:6px;color:var(--mute)">Peak is roughly 7%, read from my poster chart, about four times chance.</p>
+      </div>
+    </div></div>
+  </div>
+  <h3 class="sub">Thesis timeline</h3>
+  <div class="tl">
+    <div><b>Fall 2023 · London</b>Wrote the background and abstract while studying abroad at LSE.</div>
+    <div><b>Back in Davis</b>Collected data and finished writing.</div>
+    <div><b>May 2024</b>Built the poster board and slide show.</div>
+    <div><b>June 2024</b>Presented at the Undergraduate Research Conference and the Center for Mind and Brain Research Conference.</div>
+  </div>
+  <p style="margin-top:16px"><a href="https://docs.google.com/document/d/1fxtbDf6lfbHyYKgX-QewFUSNthsiqnZzuOjRfwqFmBI/edit?usp=sharing" target="_blank" rel="noopener"><b>Read the full thesis</b></a></p>
+</section>
+
+<!-- E -->
+<section id="e">
+  <div class="ex-head"><span class="ex-letter">E</span><div><p class="mono">Exhibit E · Python · scikit-learn · TensorFlow</p><h2>Predicting sleep disorders</h2></div></div>
+  <p class="lede">A supervised machine-learning project that predicts whether a person has insomnia, sleep apnea or no sleep disorder from lifestyle and health data. I compared three models, and the support vector classifier did best.</p>
+  <div class="grid g2" style="margin-top:24px;align-items:start">
+    <div class="win"><div class="bar"><span class="mono">Test accuracy by model</span></div><div class="body chart" id="models"></div></div>
+    <div class="win"><div class="bar"><span class="mono">The data</span></div><div class="body" style="display:grid;gap:10px">
+      <p><b>374 people</b> from a Kaggle sleep health and lifestyle dataset: 219 with no disorder, 78 with sleep apnea, 77 with insomnia.</p>
+      <p>Features include age, gender, occupation, sleep duration, activity level, stress, BMI category, blood pressure, heart rate and daily steps.</p>
+      <p>Gender, occupation, sleep duration and age stood out as important indicators across the models.</p>
+      <p><a href="https://github.com/agrajan3/PredictingSleepDisorders" target="_blank" rel="noopener"><b>See the code on GitHub</b></a></p>
+    </div></div>
+  </div>
+</section>
+
+<!-- F -->
+<section id="f">
+  <div class="ex-head"><span class="ex-letter">F</span><div><p class="mono">Exhibit F · How it all fit</p><h2>The week, balanced</h2></div></div>
+  <p class="lede">Classes and shifts moved around every quarter, so this is a composite of typical days across my years, not a log of one quarter. Solid blocks are fixed times. Hatched blocks are flexible and their timing varied.</p>
+  <div class="win" style="margin-top:24px"><div class="body" style="display:grid;gap:14px">
+    <div class="tabs" id="dayTabs" role="group" aria-label="Day type"></div>
+    <div><div class="strip" id="strip" role="img" aria-label="Timeline of the selected day"></div>
+      <div class="ticks" id="ticks"></div></div>
+    <div class="legend"><span><i style="background:var(--sage)"></i>Gym</span><span><i style="background:var(--orange)"></i>Fixed</span><span><i style="background:repeating-linear-gradient(135deg,var(--orange-soft) 0 4px,transparent 4px 8px);border-style:dashed"></i>Flexible</span></div>
+    <ul class="daylist" id="dayList"></ul>
+  </div></div>
+
+  <h3 class="sub">Weekly rhythm</h3>
+  <div class="grid g3">
+    <div class="win"><div class="body"><p class="mono" style="color:var(--mute)">Monday</p><p>Sorority meeting at 7 PM</p></div></div>
+    <div class="win"><div class="body"><p class="mono" style="color:var(--mute)">Friday</p><p>DJLS work at end of day, then a Paesanos shift</p></div></div>
+    <div class="win"><div class="body"><p class="mono" style="color:var(--mute)">Floating</p><p>Moot Court board 2×, member meeting 1×, DJLS meeting 1 hr at night, court watch 2×</p></div></div>
+  </div>
+
+  <h3 class="sub">Hours per week, by activity</h3>
+  <p class="lede" style="margin-bottom:12px">Ranges from my resume. These did not all overlap, since each ran in a different stretch of 2020 to 2024.</p>
+  <div class="win"><div class="body chart" id="hours"></div></div>
+</section>
+
+<!-- G -->
+<section id="g">
+  <div class="ex-head"><span class="ex-letter">G</span><div><p class="mono">Exhibit G · Smaller filings</p><h2>Also on the docket</h2></div></div>
+  <div class="grid g3">
+    <div class="ev"><span class="tag">Law and policy</span><h4>Bay Legal</h4><p>Volunteer, Jan to Aug 2023. Researched articles, laws and summaries for pro bono employment and housing cases.</p></div>
+    <div class="ev"><span class="tag">Research</span><h4>Christopher Hare's LLM project</h4><p>Volunteer research assistant, Aug 2023 to Jun 2024. Studied how well LLMs predict the political alignment of presidential candidates.</p></div>
+    <div class="ev"><span class="tag">Ethics</span><h4>AI Student Collective</h4><p>Ethics Board member, May to Aug 2023. Projects on AI and legal literacy and public policy.</p></div>
+    <div class="ev"><span class="tag">Research</span><h4>Luck Lab</h4><p>Research assistant, Dec 2020 to Jun 2024. Behavioral and EEG cognitive neuroscience research.</p></div>
+    <div class="ev"><span class="tag">Community</span><h4>Delta Chi Delta Gamma</h4><p>Director of House Management. Helped build a $100,000+ budget for house safety and living needs.</p></div>
+    <div class="ev"><span class="tag">Community</span><h4>Davis Pre-Law Society</h4><p>Member, Nov 2020 to May 2024. Monthly meetings and workshops.</p></div>
+  </div>
+  <footer><p class="serif" style="font-size:24px">Case closed. Thanks for reading the file.</p><button class="tab" id="top">Back to top</button></footer>
+</section>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>s;
+
+/* ---------- Events ---------- */
+const EV=[
+ ['Teaching','Intro to Case Briefs panel','At UC Davis King Hall with Prof. Irene Oritseweyinmi Joe (Professor of Law and Chancellor\'s Fellow), Prof. Luke Fadem and the law school\'s moot court team.'],
+ ['Governance','Club bylaws','Wrote the club\'s bylaws.'],
+ ['Fundraising','Local business fundraisers','Organized fundraisers with Yolo Berry and Sharetea.'],
+ ['Competition','UC scrimmages','Set up scrimmages with other UC moot court teams, including UC Berkeley.'],
+ ['Competition','Mock competitions','Organized mock competitions with other colleges.'],
+ ['Teaching','Summer workshop','Case breakdown decks, recorded sessions, Slack threads and Friday Q&A across two issues.'],
+ ['Competition','First AMCA oral advocacy competition','Coached and led members to our first AMCA oral advocacy competition.'],
+ ['Governance','Weekly rhythm','Board meetings twice a week, member meetings once a week, plus building case materials and lining up law schools, professors, justices and tournaments.']
+];
+const cats=['All',...new Set(EV.map(e=>e[0]))];let cat='All';
+function drawEv(){
+ $('#evChips').innerHTML=cats.map(c=>`<button class="tab" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join('');
+ $('#events').innerHTML=EV.map(e=>`<article class="ev" ${cat==='All'||cat===e[0]?'':'hidden'}><span class="tag" style="align-self:flex-start">${e[0]}</span><h4>${e[1]}</h4><p>${e[2]}</p></article>`).join('');
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){cat=b.dataset.c;drawEv()}});
+drawEv();
+
+/* ---------- Teaching room ---------- */
+const STEPS=['Issue','Facts','Case history','Arguments','Decision','Test or key idea','Your turn'];
+const L=(a)=>`<ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+const N=(a)=>`<ol class="nums">${a.map((x,i)=>`<li><i>${i+1}</i><span>${x}</span></li>`).join('')}</ol>`;
+const LAD=(a)=>`<div class="ladder">${a.map((x,i)=>`<div class="rung ${i===a.length-1?'here':''}"><b>${x[0]}</b>${x[1]}</div>`).join('')}</div>`;
+const MINI=(t,b)=>`<div class="mini"><h5>${t}</h5>${b}</div>`;
+const CASES={
+ sherbert:{name:'Sherbert v. Verner',slides:[
+  `<p class="q">Did denying unemployment benefits infringe on her right to religious expression?</p><p>More generally, how does the First Amendment accommodate the practices of minority religious groups?</p><p class="mono" style="color:var(--mute)">Warm-up concept: the First Amendment protects speech, press, assembly, petition and religion through the Free Exercise and Establishment Clauses, and public entities must balance them.</p>`,
+  `<div class="cols">${MINI('What happened',`<p>Adell Sherbert worked at a South Carolina textile mill for 35 years, Monday to Friday, until she was switched to Saturdays.</p>`)}${MINI('Why was it a problem',`<p>She had become a Seventh Day Adventist, a religion that requires Saturday off for the Sabbath.</p>`)}${MINI('Then',`<p>She was fired and applied for unemployment. The Commission denied benefits because she had not accepted jobs at other mills.</p>`)}</div><p class="quote">The state's law: ineligible if the claimant fails, without good cause, to accept available suitable work.</p>`,
+  LAD([['Court of Common Pleas','Denied, appealed'],['SC Supreme Court','Denied, appealed'],['SCOTUS','Here']]),
+  `<div class="cols">${MINI('Sherbert',`<p>She had good cause to refuse the jobs because of her religion, so denying benefits was unconstitutional.</p>`)}${MINI('The Commission (Verner)',`<ul><li>The Act did not discriminate against her for being Seventh Day Adventist.</li><li>It barred benefits because of her lack of availability.</li><li>The state has an interest in making sure recipients are open and willing to work.</li></ul>`)}</div>`,
+  `<p class="q">The Court ruled for Sherbert.</p>${L(['The state\'s eligibility rules put a significant burden on her religious practice.','Government can restrict free exercise only if the rule survives strict scrutiny.'])}<p class="quote">The ruling forced her to choose between her religion and forfeiting benefits, a burden like a fine for Saturday worship. Justice Brennan, paraphrased.</p>`,
+  `<p class="q">The Sherbert test of strict scrutiny</p>${N(['Does the government action burden religious freedom? Withholding benefits or imposing penalties can count.','If so, is there a compelling interest to justify it?','Was the burden narrowly tailored, the only way to reach that interest?'])}<p class="mono" style="color:var(--mute)">Impact: exemptions were still rarely granted until Employment Division v. Smith.</p>`],
+  turn:{P:['Say what separates <i>Sherbert</i> from the new case.','Argue within the prongs of the strict scrutiny test.','E.g. Olympus did not withhold benefits or impose penalties, and the action was narrowly tailored.'],R:['Show how the reasoning in <i>Sherbert</i> applies here.','E.g. Sherbert was practicing her religious freedom.','Compare to Mindy\'s beliefs and practice around the use and distribution of birth control.']}},
+ yoder:{name:'Wisconsin v. Yoder',slides:[
+  `<p class="q">Can your religion get you out of school?</p><p>The case set the tone for later clashes between a state interest and the Free Exercise Clause.</p><p class="mono" style="color:var(--mute)">Warm-up concept: people often ask for an exemption from a general law when it interferes with how they exercise religion.</p>`,
+  `<div class="cols">${MINI('What happened',`<p>Three Amish students from three families stopped going to New Glarus High School.</p>`)}${MINI('Who',`<ul><li>Frieda Yoder, 15</li><li>Barbara Miller, 15</li><li>Vernon Yutzy, 14</li></ul>`)}${MINI('The problem',`<p>Wisconsin required school attendance under 16. Green County fined the parents $5.</p>`)}</div><p>Amish families do not enroll children in public school after 8th grade. Teens begin learning a trade then, and the Amish see high schools as a threat to their Christian values.</p>`,
+  LAD([['Trial court','Appealed'],['Wisconsin Circuit Court','Conviction affirmed'],['Wisconsin Supreme Court','Overturned'],['SCOTUS','Here']]),
+  `<div class="cols">${MINI('Yoder',`<p>The compulsory education law violated the free exercise of their religion. Jonas Yoder, Frieda's father, represented the parents with Lutheran minister William Lindholm.</p>`)}${MINI('Wisconsin',`<p>The state had a compelling interest in educating its children, which would make the Amish claim moot.</p>`)}</div>`,
+  `<p class="q">The Court ruled for Yoder.</p><p>The Free Exercise Clause protected the Amish parents' right to take their children out of school, even under 16.</p><p class="mono" style="color:var(--mute)">The ruling put religious freedom over the state's interest in educating its citizenry.</p>`,
+  `<p class="q">Key idea</p><p class="quote">However strong the state's interest in universal compulsory education, it is by no means absolute to the exclusion or subordination of all other interests.</p><p>To get the Religion Clauses' protection, claims must be rooted in religious belief, not purely secular values (Chief Justice Burger).</p>`],
+  turn:{P:['Say what separates <i>Yoder</i> from the new case.','E.g. pulling kids from school affected only their families, while distributing birth control and aiding others becomes a society issue.'],R:['Show how the reasoning in <i>Yoder</i> applies here.','E.g. a family has the right to exercise religion freely or its way of life is threatened.','Compare to Mindy\'s beliefs and practice around birth control.']}},
+ tandon:{name:'Tandon v. Newsom',slides:[
+  `<p class="q">Did COVID regulations violate the Free Exercise Clause?</p><p class="mono" style="color:var(--mute)">Warm-up concept: the Free Exercise Clause bars laws that interfere with the free exercise of religion.</p>`,
+  `<div class="cols">${MINI('Tandon',`<ul><li>Wanted at-home religious meetings with more than 3 households.</li><li>Filed for an injunction against the limit.</li></ul>`)}${MINI('Newsom',`<ul><li>At-home gatherings, religious or secular, limited to 3 households.</li><li>Larger groups allowed in commercial settings such as movie theaters and hair salons.</li></ul>`)}</div><p>Shortly after the challenge, the state moved to change the policy, effective April 15.</p>`,
+  LAD([['Trial court','Tandon loses'],['Appeals court','Tandon loses'],['SCOTUS','Granted certiorari']]),
+  `<div class="cols">${MINI('The state\'s side',`<p>The district court said public and private buildings differ, and so do volume and regulation.</p>`)}${MINI('SCOTUS asks',`<ul><li>Does the government interest justify the rule?</li><li>Is it narrowly tailored? Why is religious exercise more dangerous than other activities allowed with precautions?</li></ul>`)}</div><p>California treated hair salons, retail, personal care, movie theaters, sports suites, concerts and indoor restaurants more favorably. All bring together 3 or more households.</p>`,
+  `<p class="q">The Court rejected the lower court's analysis.</p>${L(['The state\'s rules fail, and losing free exercise rights even briefly is a harm.','The state did not show that public health was at great risk with less restrictive measures.','Dissent: at-home gatherings are smaller, less ventilated and longer than commercial settings, and distancing and masks are hard to enforce at home. Changing the rules risks public health and ignores experts.'])}`,
+  `<p class="q">Why Newsom's rules were not neutral and generally applicable</p>${N(['The narrow, least restrictive means was to use the same precautions as for secular activities.','The state never concluded secular activities were lower risk than religious ones.','Secular acts were treated more favorably than religious exercise.','The goalposts can move again at any point.'])}<p class="mono" style="color:var(--mute)">So the rules got strict scrutiny.</p>`],
+  turn:{P:['Say what separates <i>Newsom</i> from the new case.','E.g. use <i>Smith</i> to argue the law only happened to affect Mindy\'s religion.','Argue the law is narrowly tailored and serves a compelling interest.'],R:['Show how <i>Tandon</i> applies here.','E.g. the law fails compelling interest and general applicability: it has exceptions, and it bans all forms of birth control, which is very restrictive.','Many other religious groups share Mindy\'s objection.']}}
+};
+let cs='sherbert',st=0,side='P';
+function drawRoom(){
+ $('#caseTabs').innerHTML=Object.entries(CASES).map(([k,c])=>`<button class="tab" role="tab" aria-selected="${k===cs}" data-case="${k}">${c.name}</button>`).join('');
+ $('#stepBtns').innerHTML=STEPS.map((s,i)=>`<button class="step" aria-pressed="${i===st}" data-step="${i}">${i+1}. ${s}</button>`).join('');
+ const c=CASES[cs];
+ if(st<6){$('#slide').innerHTML=c.slides[st];$('#turn').innerHTML=''}
+ else{
+  $('#slide').innerHTML=`<p class="q">Back to the issue: State of Olympus v. Mindy Vo</p><p>Does Olympus's "REAP WHAT YOU SOW Act" violate the Free Exercise Clause? The same made-up case was reused with each precedent. Pick a side.</p>`;
+  $('#turn').innerHTML=`<div class="tabs"><button class="tab" aria-pressed="${side==='P'}" data-side="P">Petitioner (State of Olympus)</button><button class="tab" aria-pressed="${side==='R'}" data-side="R">Respondent (Mindy Vo)</button></div><p class="mono">What to think about with ${c.name}</p>${L(c.turn[side])}`;
+ }
+}
+document.addEventListener('click',e=>{
+ const a=e.target.closest('[data-case]'),b=e.target.closest('[data-step]'),d=e.target.closest('[data-side]');
+ if(a){cs=a.dataset.case;drawRoom()}if(b){st=+b.dataset.step;drawRoom()}if(d){side=d.dataset.side;drawRoom()}
+});
+drawRoom();
+
+/* ---------- DJLS redline ---------- */
+$('#redBtn').addEventListener('click',e=>{const r=$('#red');const on=r.classList.toggle('clean');e.target.setAttribute('aria-pressed',on);e.target.textContent=on?'Show edits':'Show clean copy'});
+
+/* ---------- Thesis montage ---------- */
+const MONT=[['16 focused',16,'f','Sixteen electrodes packed over the back of the head, where visual areas sit.'],['16 distributed',16,'d','Sixteen electrodes spread evenly. This was the one montage that decoded worse overall.'],['32 focused',32,'f','Thirty-two electrodes concentrated toward the back of the head.'],['32 distributed',32,'d','Thirty-two electrodes spread evenly across the scalp.'],['64 semi-focused',64,'a','The full 64-electrode cap. The smaller montages are subsets of it.']];
+const PTS=[];[[1,0],[7,.18],[12,.38],[19,.6],[25,.82]].forEach(([n,r])=>{for(let i=0;i<n;i++){const t=n===1?0:i/n*Math.PI*2+(r>0.5?.2:0);PTS.push([Math.sin(t)*r*95,-Math.cos(t)*r*105])}});
+let mi=4;
+function drawHead(){
+ const [name,k,kind,cap]=MONT[mi];let on;
+ if(kind==='a')on=PTS.map((_,i)=>i);
+ else if(kind==='f')on=PTS.map((p,i)=>[p[1],i]).sort((a,b)=>b[0]-a[0]).slice(0,k).map(x=>x[1]);
+ else on=PTS.map((_,i)=>i).filter((_,i)=>Math.floor(i*k/64)!==Math.floor((i-1)*k/64)||i===0).slice(0,k);
+ const s=new Set(on);
+ $('#headSvg').innerHTML=`<path d="M-14 -112 L0 -124 L14 -112" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/><ellipse cx="0" cy="0" rx="100" ry="110" fill="var(--paper)" stroke="var(--ink)" stroke-width="3"/>`+PTS.map((p,i)=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${s.has(i)?6:3}" fill="${s.has(i)?'var(--orange)':'var(--card)'}" stroke="var(--ink)" stroke-width="${s.has(i)?2:1}"/>`).join('')+`<text x="0" y="118" text-anchor="middle" font-size="11" fill="var(--mute)" font-family="Bricolage Grotesque,sans-serif">front at top · back at bottom</text>`;
+ $('#mTabs').innerHTML=MONT.map((m,i)=>`<button class="tab" aria-pressed="${i===mi}" data-m="${i}">${m[0]}</button>`).join('');
+ $('#mCap').textContent=`${name}: ${on.length} electrodes lit. ${cap}`;
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b){mi=+b.dataset.m;drawHead()}});
+drawHead();
+$('#guess').innerHTML=MONT.map((m,i)=>`<button class="tab" data-g="${i}">${m[0]}</button>`).join('');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-g]');if(!b)return;const i=+b.dataset.g;
+ document.querySelectorAll('[data-g]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ const r=$('#gres');r.style.display='block';
+ r.innerHTML=(i===1?'<b>You picked the one that did worst.</b> ':'<b>Close, but it is basically a tie.</b> ')+'Overall decoding accuracy was similar across the montages. The distributed 16-electrode montage was the exception, and by effect size the number and placement of electrodes did not appear to matter much.'});
+
+/* ---------- bar charts ---------- */
+$('#models').innerHTML=[['Support vector classifier',97],['Gradient boosting',92],['Regression model',89.33]].map(([n,v])=>`<div class="row" style="grid-template-columns:minmax(110px,170px) 1fr 62px"><span>${n}</span><div class="track" style="background:none"><div class="rng" style="left:0;width:${v}%;top:3px;height:12px"></div></div><span class="val">${v}%</span></div>`).join('')+`<p style="font-size:13px;color:var(--mute)">Share of held-out test cases classified correctly, from the project report.</p>`;
+
+const H=[['Luck Lab',10,25],['Starbucks',10,20],['Paesanos',15,15],['Davis Vanguard',11,14],['Moot Court',8,15],['Bay Legal',4,6],['DJLS',4,4],['Hare LLM project',1,3],['AI Student Collective',1,2],['Pre-Law Society',1,2]].sort((a,b)=>b[2]-a[2]||b[1]-a[1]);
+const pc=v=>v/25*100;
+$('#hours').innerHTML=`<div class="axis"><span></span><div><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25 hrs</span></div><span></span></div>`+H.map(([n,a,b])=>{
+ const lab=a===b?`${a}`:`${a} to ${b}`;
+ const mark=a===b?`<span class="dot" style="left:${pc(a)}%"></span>`:`<div class="rng" style="left:${pc(a)}%;width:${pc(b)-pc(a)}%;border-radius:14px"></div>`;
+ return `<div class="row"><span>${n}</span><div class="track" title="${n}: ${lab} hrs/week">${mark}</div><span class="val">${lab}</span></div>`}).join('');
+
+/* ---------- day strip ---------- */
+const T0=4,T1=24,pos=h=>(h-T0)/(T1-T0)*100;
+const DAYS={
+ class:{n:'Class day',b:[[4.5,4.5,'','mark'],[5.5,7.5,'Gym','gym'],[8,17,'Campus: classes, studying, Moot Court prep','flex'],[19,19.01,'','mark']],
+  l:['Wake at 4:30 AM, gym 5:30 to 7:30.','Stay on campus for classes, studying, Moot Court materials, AI Student Collective meetings and homework.','Court watch twice a week, about 7 hours each.','Mondays: sorority meeting at 7 PM. One night a week: a one-hour DJLS meeting.']},
+ off:{n:'Few or no classes',b:[[5.5,7.5,'Gym','gym'],[8,17,'Lab · Bay Legal · Hare project','flex']],
+  l:['Gym 5:30 to 7:30 after the 4:30 AM wake-up.','Research at the lab off campus.','Volunteer at Bay Legal and work on or meet about the Christopher Hare LLM project.','Fridays: DJLS work at end of day.']},
+ sbux:{n:'Starbucks day',b:[[5.5,7.5,'Gym','gym'],[8,13.5,'Classes / study','flex'],[14,19,'Starbucks 2 to 7 PM','solid']],
+  l:['A shift of about 2 to 7 PM, twice a week.','Gym first thing, then school around the shift.']},
+ pae:{n:'Paesanos night',b:[[5.5,7.5,'Gym','gym'],[8,16.5,'Classes / study','flex'],[17,23,'Paesanos 5 to 11 PM','solid']],
+  l:['A shift of about 5 to 11 PM, usually Friday and Saturday.','Friday also carries DJLS work at end of day.']}
+};
+let dk='class';
+function drawDay(){
+ $('#dayTabs').innerHTML=Object.entries(DAYS).map(([k,d])=>`<button class="tab" aria-pressed="${k===dk}" data-d="${k}">${d.n}</button>`).join('');
+ const d=DAYS[dk];
+ $('#strip').innerHTML=d.b.map(([a,b,t,c])=>c==='mark'?`<div style="position:absolute;left:${pos(a)}%;top:4px;bottom:4px;width:0;border-left:3px solid var(--ink)" title="${a===4.5?'Wake 4:30 AM':'Sorority 7 PM (Mon)'}"></div>`:`<div class="blk ${c}" style="left:${pos(a)}%;width:${pos(b)-pos(a)}%" title="${t}">${t}</div>`).join('');
+ $('#ticks').innerHTML=['4 AM','8 AM','12 PM','4 PM','8 PM','12 AM'].map(x=>`<span>${x}</span>`).join('');
+ $('#dayList').innerHTML=d.l.map(x=>`<li>${x}</li>`).join('');
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(b){dk=b.dataset.d;drawDay()}});
+drawDay();
+$('#top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+
+</body></html>
